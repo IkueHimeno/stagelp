@@ -6,7 +6,7 @@
 ---
 
 ## URL
-※デプロイ後に追加予定（Vercel）
+https://stagelp-dev.vercel.app/
 
 ---
 
