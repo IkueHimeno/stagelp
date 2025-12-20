@@ -1,0 +1,592 @@
+/* 配色用テーマカラー一覧 */
+:root {
+    --color-bg: #0c1024;
+    --color-primary: #4fa3ff;
+    --color-secondary: #7b4bff;
+    --color-accent: #00ff7f;
+    --color-text: #ffffff;
+    --color-section-a: #0f1b3d;
+    --color-section-b: #070a18;
+
+    --max-width: 960px;
+}
+
+
+/* レイアウト */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+@media (max-width: 1050px) {
+    body {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 80%;
+    }
+
+    .section-inner {
+        padding: 0 16px;
+    }
+
+    .ticket-button {
+        padding: 14px 0;
+        font-size: 16px;
+    }
+
+    .news-item .date,
+    .kikan,
+    .sale,
+    .map {
+        font-size: 0.9em;
+    }
+
+    .cast-item img {
+        width: 200px;
+    }
+}
+
+
+section {
+    width: 100%;
+    padding: 80px 0;
+}
+
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--color-section-a);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--color-section-b);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1;
+    height: 1;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+
+/* ヘッダー */
+.header {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
+    background: none;
+    padding: 0;
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ハンバーガーボタン　*/
+.hamburger {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 3000;
+}
+
+.hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 1px;
+    margin: 0 auto;
+}
+
+.hamburger.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ナビゲーション */
+.nav {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #0f1b3d, #070a18);
+
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav li {
+    margin: 24px 0;
+}
+
+.nav a {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+
+    text-shadow: 
+        0 0 8px rgba(79, 163, 255, 0.8),
+        0 0 16px rgba(79, 163, 255, 0.6);
+}
+
+.nav a:hover {
+    color: #ffffff;
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.9),
+        0 0 24px rgba(79, 163, 255, 1);
+}
+
+.nav.is-open {
+    transform: translateX(0);
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: 0.3s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+/* 広告用バナー */
+.banner {
+    display: block;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 10px 16px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.banner a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.banner:hover {
+    opacity: 0.85;
+}
+
+
+/* メインビジュアル */
+#hero {
+    background-color: var(--color-bg);
+    padding: 20px 0 20px;
+}
+
+.hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero-img {
+    width: 100%;
+    display: block;
+}
+
+
+/* 見出し */
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    letter-spacing: 0.2em;
+    position: relative;
+}
+
+
+/* あらすじ */
+.story-pg {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.story-closer {
+    position: relative;
+    padding-left: 2.5em;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-accent);
+
+    text-shadow: 
+        0 0 6px rgba(0, 255, 127, 0.6),
+        0 0 12px rgba(0, 255, 127, 0.4);
+}
+
+.story-closer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 2em;
+    height: 1.5px;
+
+    background: var(--color-accent);
+
+    transform: translateY(-50%);
+
+    box-shadow: 
+    0 0 6px rgba(0, 255, 127, 0.6),
+    0 0 12px rgba(0, 255, 127, 0.4);
+}
+
+@media (max-width: 600px) {
+    .story-closer {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ニュース */
+.news-list {
+    list-style: none;
+    padding: 0;
+}
+
+.news-item {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.news-item .date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    min-width: 100px;
+}
+
+.news-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.news-link:hover {
+    color: var(--color-accent);
+}
+
+
+/* キャスト・スタッフ */
+.cast-list {
+    list-style: none;
+    padding: 0;
+}
+
+.staff-list,
+.staff-cooperation-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.cast-item {
+    text-align: center;
+}
+
+.cast-item img {
+    width: 250px;
+    height: auto;
+    display: block;
+}
+
+.cast-name {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.staff-item,
+.staff-cooperation-item {
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.cast-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    justify-items: center;
+}
+
+@media (min-width: 600px) {
+    .cast-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.cast-item:first-child {
+    grid-column: 1 / -1;
+}
+
+.cast-photo {
+    position: relative;
+    display: inline-block;
+}
+
+.x-link {
+    position: absolute;
+    right: 0;
+    bottom: -2.6em;
+}
+
+.x-link img {
+    width: 18px;
+    height: 18px;
+}
+
+.staff-cooperation-title {
+    margin-top: 40px;
+    margin-bottom: 4px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.staff-cooperation-list {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0;
+    text-align: center;
+}
+
+
+/* チケット */
+.theatre {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    line-height: 1.2;
+}
+
+.map {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+iframe {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.kikan,
+.sale {
+    font-size: 15px;
+    margin: 6px 0;
+}
+
+/* チケットボタン */
+.ticket-button {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto 0;
+
+    padding: 18px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    
+    color: #ffffff;
+    background: var(--color-primary);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.ticket-button:hover {
+    opacity: 0.85;
+}
+
+/* 料金表 */
+.price-list {
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.price {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding: 16px 0;
+}
+
+.seat-name {
+    font-weight: 700;
+}
+
+.seat-note {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-left: 8px;
+}
+
+.seat-price {
+    padding-left: 40px;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.seat-left {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+
+/* フッター */
+.footer {
+    background: var(--color-section-b);
+    padding: 20px 20px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+
+/* YouTube */
+#videoModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    padding: 10px;
+}
+
+#videoModal iframe {
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: 8px;
+}
+
+#closeVideoModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #videoModal iframe {
+        max-width: 90%;
+    }
+
+    #closeVideoModal {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+}
