@@ -565,7 +565,6 @@ section h2 {
 
 #videoModal iframe {
     width: 100%;
-    aspect-ratio: 16/9;
     border-radius: 8px;
 }
 
@@ -575,9 +574,17 @@ section h2 {
     max-width: 640px;
 }
 
-.video-modal-content iframe {
+.video-frame {
+    position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
+}
+
+.video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     border: none;
     border-radius: 8px;
 }
@@ -592,16 +599,4 @@ section h2 {
     border-radius: 50%;
     width: 32px; height: 32px;
     cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    #videoModal iframe {
-        max-width: 90%;
-    }
-
-    #closeVideoModal {
-        width: 28px;
-        height: 28px;
-        font-size: 20px;
-    }
 }
